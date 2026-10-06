@@ -1,0 +1,30 @@
+<%- include('partials/head') %>
+<body class="min-h-screen bg-ink-900 text-slate-200 antialiased">
+  <main class="mx-auto flex min-h-screen max-w-md flex-col justify-center px-6 py-12">
+    <div class="mb-8 flex items-center gap-3">
+      <span class="grid h-11 w-11 place-items-center rounded-xl bg-fox-500 text-xl font-bold text-white">M</span>
+      <span class="text-xl font-semibold text-white"><%= appName %></span>
+    </div>
+
+    <h1 class="text-3xl font-semibold leading-tight text-white">Login pakai wallet kamu</h1>
+    <p class="mt-3 text-slate-400">
+      Connect MetaMask lalu tanda tangani satu pesan buat buktiin kamu pemilik wallet. Ga ada password, ga ada biaya gas.
+    </p>
+
+    <button id="connect-btn" type="button"
+            class="mt-8 flex w-full items-center justify-center gap-2 rounded-xl bg-fox-500 px-5 py-3.5 font-semibold text-white transition-colors hover:bg-fox-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-white disabled:cursor-not-allowed disabled:opacity-60">
+      <span id="connect-label">Connect MetaMask</span>
+    </button>
+
+    <p id="status" role="status" class="mt-4 min-h-[1.5rem] text-sm text-slate-400"></p>
+
+    <a id="install-link" href="https://metamask.io/download/" target="_blank" rel="noopener noreferrer"
+       class="mt-2 hidden text-sm text-fox-500 underline underline-offset-4 hover:text-white">
+      Install MetaMask dulu
+    </a>
+  </main>
+
+  <script src="/vendor/ethers.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>

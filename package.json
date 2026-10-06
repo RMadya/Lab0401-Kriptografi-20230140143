@@ -1,0 +1,28 @@
+{
+  "name": "metamask-auth",
+  "version": "1.0.0",
+  "description": "MetaMask login (ethers v6) + Express + EJS + Tailwind, MVC structure",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "build:css": "tailwindcss -i ./src/styles/input.css -o ./public/css/output.css --minify",
+    "watch:css": "tailwindcss -i ./src/styles/input.css -o ./public/css/output.css --watch"
+  },
+  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "dotenv": "^18.0.5",
+    "ejs": "^7.0.1",
+    "ethers": "^6.17.0",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "express-session": "^1.19.0",
+    "helmet": "^8.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14",
+    "tailwindcss": "^3.4.19"
+  }
+}

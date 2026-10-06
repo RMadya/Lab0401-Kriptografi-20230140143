@@ -1,0 +1,31 @@
+<%
+  const items = [
+    { key: 'dashboard', label: 'Dashboard', href: '/dashboard', icon: 'M3 12l9-9 9 9M5 10v10h5v-6h4v6h5V10' },
+    { key: 'transfer', label: 'Transfer', href: '/transfer', icon: 'M7 7h13M16 3l4 4-4 4M17 17H4M8 13l-4 4 4 4' },
+  ];
+%>
+<aside class="flex w-full shrink-0 flex-col bg-ink-900 text-slate-300 md:min-h-screen md:w-60">
+  <div class="flex items-center gap-3 px-5 py-5">
+    <span class="grid h-9 w-9 place-items-center rounded-lg bg-fox-500 text-lg font-bold text-white">M</span>
+    <span class="text-lg font-semibold text-white"><%= appName %></span>
+  </div>
+
+  <nav class="flex gap-1 px-3 pb-3 md:flex-1 md:flex-col md:pb-0" aria-label="Menu utama">
+    <% items.forEach((item) => { %>
+      <a href="<%= item.href %>"
+         class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-fox-500 <%= active === item.key ? 'bg-ink-700 text-white' : 'hover:bg-ink-800 hover:text-white' %>"
+         <%- active === item.key ? 'aria-current="page"' : '' %>>
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="<%= item.icon %>"/></svg>
+        <%= item.label %>
+      </a>
+    <% }) %>
+
+    <form action="/auth/logout" method="POST" class="ml-auto md:ml-0 md:mt-auto md:pb-4">
+      <button type="submit"
+              class="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-ink-800 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-fox-500">
+        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+        Logout
+      </button>
+    </form>
+  </nav>
+</aside>
